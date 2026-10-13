@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vivek Malwade — Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="Vivek Malwade — Web Developer & Designer. Portfolio showcasing projects, skills and contact." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  
+<style>
+/* Skills section — pill layout inspired by the provided reference */
+#skills .skills-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 100%;
+}
+
+#skills .skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#skills .skill-category-title {
+  margin: 0;
+  color: #85809f;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+#skills .skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+}
+
+#skills .skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.045);
+  color: #e8e6f0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.025);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+#skills .skill-pill:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.075);
+  border-color: rgba(255,255,255,0.18);
+}
+
+#skills .skill-pill img,
+#skills .skill-pill svg {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex: 0 0 20px;
+}
+
+@media (max-width: 600px) {
+  #skills .skill-pill {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  #skills .skill-pill img,
+  #skills .skill-pill svg {
+    width: 18px;
+    height: 18px;
+    flex-basis: 18px;
+  }
+}
+</style>
+
+  
+<style>
+/* Clean technology orbit around the profile photo */
+.hero-card {
+  position: relative;
+  overflow: visible !important;
+}
+
+.hero-image-wrap {
+  position: relative;
+  z-index: 2;
+  overflow: visible !important;
+}
+
+.hero-tech-orbit {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.hero-tech {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  background: rgba(13,14,25,.88);
+  color: #e9e7f2;
+  box-shadow: 0 8px 24px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  animation: techFloat 5s ease-in-out infinite;
+}
+
+.hero-tech img,
+.hero-tech-icon {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+  flex: 0 0 19px;
+}
+
+.hero-tech-icon.oracle {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f80000;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* Positions are intentionally spaced so badges never touch or overlap. */
+.hero-tech:nth-child(1) { top: 2%; left: -8%; animation-delay: -.2s; }
+.hero-tech:nth-child(2) { top: 25%; left: -14%; animation-delay: -1.1s; }
+.hero-tech:nth-child(3) { top: 10%; right: -12%; animation-delay: -2s; }
+.hero-tech:nth-child(4) { bottom: 15%; left: -13%; animation-delay: -2.9s; }
+.hero-tech:nth-child(5) { bottom: 3%; right: -7%; animation-delay: -3.8s; }
+.hero-tech:nth-child(6) { bottom: 32%; right: -14%; animation-delay: -4.7s; }
+
+@keyframes techFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (max-width: 900px) {
+  .hero-tech { height: 38px; padding: 0 11px; font-size: 12px; gap: 6px; }
+  .hero-tech img,
+  .hero-tech-icon { width: 17px; height: 17px; flex-basis: 17px; }
+}
+
+@media (max-width: 700px) {
+  .hero-tech-orbit { inset: 0; }
+  .hero-tech { height: 34px; padding: 0 9px; font-size: 10px; }
+  .hero-tech:nth-child(1) { top: 0; left: 0; }
+  .hero-tech:nth-child(2) { top: 24%; left: -3%; }
+  .hero-tech:nth-child(3) { top: 0; right: 0; }
+  .hero-tech:nth-child(4) { bottom: 17%; left: -2%; }
+  .hero-tech:nth-child(5) { bottom: 0; right: 0; }
+  .hero-tech:nth-child(6) { bottom: 31%; right: -2%; }
+}
+</style>
+
+  </head>
+  <body class="site-bg">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">Vivek Malwade</a>
+        <nav class="nav" id="nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="socials">
+          <a href="https://github.com/vivektech2/vivektech2" aria-label="GitHub" title="GitHub" class="social-link social-link-icon">
+            <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="" aria-hidden="true">
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/vivekmalwade/" aria-label="LinkedIn" title="LinkedIn" class="social-link social-link-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img">
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="#0A66C2"></rect>
+              <path d="M7.2 9.1H9.9V17H7.2V9.1Zm1.35-3.6c.84 0 1.48.62 1.48 1.4 0 .81-.64 1.43-1.5 1.43-.83 0-1.47-.62-1.47-1.43 0-.78.64-1.4 1.49-1.4ZM11.9 9.1h2.6v1.08h.04c.36-.64 1.25-1.3 2.57-1.3 2.75 0 3.26 1.72 3.26 3.96V17h-2.72v-3.78c0-.9-.02-2.06-1.25-2.06-1.25 0-1.44.98-1.44 2V17H11.9V9.1Z" fill="#fff"></path>
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="https://www.instagram.com/" aria-label="Instagram" title="Instagram" class="social-link social-link-icon">
+            <img src="https://cdn.simpleicons.org/instagram/FF7AB6" alt="" aria-hidden="true">
+            <span class="sr-only">Instagram</span>
+          </a>
+        </div>
+        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1>Hi, I'm Vivek Malwade</h1>
+            <p class="lead">Enterprise Application Developer specializing in Oracle APEX.
+Skilled in Web & Mobile Application Development with modern technologies.
+Passionate about creating impactful software solutions.</p>
+              <p class="hero-sub">.Net Developer — App developer — Problem Solver</p>
+              <div class="hero-badges">
+                <span class="badge">Oracle APEX</span>
+                <span class="badge">React</span>
+                <span class="badge">Next.js</span>
+                <span class="badge">Flutter</span>
+                <span class="badge">Android</span>
+              </div>
+              <div class="hero-actions">
+                <a class="btn primary" href="#projects">See my work</a>
+                <a class="btn ghost" href="mailto:vivekmalwade2@gmail.com">Email</a>
+              </div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-image-wrap">
+              <img id="heroImageBack" src="VivekMalwade.jpeg" alt="Vivek Malwade" class="hero-image hero-image-back" />
+              
+            </div>
+            <div class="hero-tech-orbit" aria-label="Technologies">
+              <span class="hero-tech"><img src="https://img.icons8.com/?size=100&id=38804&format=png&color=000000" alt="">Salesforce</span>
+              <span class="hero-tech"><img src="https://img.icons8.com/?size=100&id=9nRuLVad2Yr2&format=png&color=000000" alt="">CRM</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="">SQL</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/python/3776AB" alt="">Python</span>
+              <span class="hero-tech"><span class="hero-tech-icon oracle">O</span>Oracle APEX</span>
+              <span class="hero-tech"><img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="">Firebase</span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2>About</h2>
+          <p>Passionate software developer and engineering student with experience in AI,Data, Android, and web development. Built multiple real-world projects including AI assistants, management systems, and educational platforms. Enthusiastic about creating impactful technology solutions and continuously learning new technologies.</p>
+          <div class="community-card">
+            <div>
+              <p class="community-kicker">Instagram community</p>
+              <h3>Guiding 10,000+ IT peoples on Instagram</h3>
+              <p class="muted">I share career tips, project ideas, and development guidance for students and aspiring developers.</p>
+            </div>  
+            <a class="btn primary community-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Open Instagram</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+  <div class="container">
+    <h2>Experience</h2>
+    <div class="grid">
+
+      <article class="card">
+        <h3>Infosys. — Software Developer</h3>
+        <p class="muted">Present - Full Time</p>
+        <ul>
+          <li>Working on Live applications</li>
+          <li>Salesforce CRM</li>
+        </ul>
+      </article>
+<!--
+      <article class="card">
+        <h3>kshetrpati Industries - Flutter & Android Developer</h3>
+        <p class="muted">Intern - Jan 2026 — June 2026</p>
+        <ul>
+          <li>Developed Android and Flutter applications with modern UI designs and Firebase integration.</li>
+          <li>Built real-time expense tracking, stock management, and payment-related features.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Poornyash Infotech - PHP Developer</h3>
+        <p class="muted">Intern - jan 2023 — june 2023</p>
+        <ul>
+          <li>Created responsive websites using HTML, CSS, JavaScript, PHP, and Bootstrap.</li>
+          <li>Developed portfolio websites, blogging platforms, and student resource platforms.</li>
+        </ul>
+      </article>
+-->
+    </div>
+  </div>
+</section>
+
+      <section id="education" class="section">
+        <div class="container">
+          <h2>Education</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>B.Tech in Computer Science</h3>
+              <p class="muted">Sinhgad Institutes, Pune — 2022</p>
+              <p>Completed my B.Tech in Computer Science from Sinhgad Indstitutes, Pune in 2022.</p>
+            </article>
+
+            <article class="card">
+              <h3>Diploma in Computer Science</h3>
+              <p class="muted">VAPM, Latur - 2019</p>
+              <p>Completed my diploma in Computer Science from VAPM Latur.</p>
+            </article>
+
+            <article class="card">
+              <h3>Schooling</h3>
+              <p class="muted">SSHS, Latur - 2016</p>
+              <p>Completed my schooling from Shri Shivaji High School, Latur.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects">
+        <div class="container">
+          <h2>Selected Projects</h2>
+          <div class="grid">
+            <article class="card">
+              <div class="project-thumb" style="background-image:linear-gradient(135deg,rgba(96,173,246,0.1),rgba(110,231,183,0.08));">
+                <img class="project-thumb-image" src="pratibimb.png" alt="pratibimb project icon">
+                <div class="project-title">pratibimb</div>
+              </div>
+              <p>Pratibimb — An online document printing platform designed to simplify document uploading, ordering, and printing.
+Built with a focus on a smooth, user-friendly experience for managing print orders digitally.
+.</p>
+              <a class="link" href="https://pratibimb.online/">Get Project →</a>
+            </article>
+            <article class="card">
+              <div class="project-thumb" style="background-image:linear-gradient(135deg,rgba(96,173,246,0.08),rgba(110,231,183,0.06));">
+                <img class="project-thumb-image" src="connecta.png" alt="Connecta project icon">
+                <div class="project-title">Connecta</div>
+              </div>
+              <p>Connecta is a real-time messaging platform focused on speed, reliability, and an intuitive mobile-first UX.</p>
+              <a class="link" href="#">View case study →</a>
+            </article>
+            <article class="card">
+              <div class="project-thumb" style="background-image:linear-gradient(135deg,rgba(110,231,183,0.08),rgba(96,173,246,0.06));">
+                <img class="project-thumb-image" src="electratrack.png" alt="ElectraTrack project icon">
+                <div class="project-title">ElectraTrack</div>
+              </div>
+              <p>ElectraTrack is a finance tracker that helps users monitor expenses, incomes, and trends with real-time synchronization.</p>
+              <a class="link" href="#">View case study →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+     <section id="skills" class="section">
+  <div class="container">
+    <h2>Skills</h2>
+
+    <div class="skills-showcase" aria-label="Skills and tools">
+
+      <!-- ================= LANGUAGES ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Programming Languages</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/c/FFFFFF" alt="C">
+            <span>C</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++">
+            <span>C++</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/java/ED8B00" alt="Java">
+            <span>Java</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python">
+            <span>Python</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript">
+            <span>JavaScript</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/typescript/3178C6" alt="TypeScript">
+            <span>TypeScript</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/php/777BB4" alt="PHP">
+            <span>PHP</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/csharp/239120" alt="C#">
+            <span>C#</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/ruby/CC342D" alt="Ruby">
+            <span>Ruby</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/swift/F05138" alt="Swift">
+            <span>Swift</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= WEB ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Web Technologies</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">
+            <span>HTML5</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/css/1572B6" alt="CSS3">
+            <span>CSS3</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/sass/CC6699" alt="Sass">
+            <span>Sass</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/bootstrap/7952B3" alt="Bootstrap">
+            <span>Bootstrap</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" alt="Tailwind CSS">
+            <span>Tailwind CSS</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React">
+            <span>React</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" alt="Next.js">
+            <span>Next.js</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/angular/DD0031" alt="Angular">
+            <span>Angular</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/vue.js/4FC08D" alt="Vue.js">
+            <span>Vue.js</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= MOBILE ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Mobile Development</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter">
+            <span>Flutter</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/dart/0175C2" alt="Dart">
+            <span>Dart</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/android/3DDC84" alt="Android">
+            <span>Android</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Native">
+            <span>React Native</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/swift/F05138" alt="SwiftUI">
+            <span>SwiftUI</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/xcode/147EFB" alt="Xcode">
+            <span>Xcode</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/apple/FFFFFF" alt="Core Data">
+            <span>Core Data</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= BACKEND ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Backend Development</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/nodedotjs/339933" alt="Node.js">
+            <span>Node.js</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/express/FFFFFF" alt="Express.js">
+            <span>Express.js</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/python/3776AB" alt="Flask">
+            <span>Flask</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/django/092E20" alt="Django">
+            <span>Django</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI">
+            <span>FastAPI</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/rubyonrails/CC0000" alt="Ruby on Rails">
+            <span>Ruby on Rails</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/springboot/6DB33F" alt="Spring Boot">
+            <span>Spring Boot</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= .NET ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">.NET Ecosystem</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/dotnet/512BD4" alt=".NET">
+            <span>.NET</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/dotnet/512BD4" alt="ASP.NET Core">
+            <span>ASP.NET Core</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/csharp/239120" alt="C#">
+            <span>C#</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/microsoftsqlserver/CC2927" alt="SQL Server">
+            <span>SQL Server</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= DATABASE ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Databases</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL">
+            <span>MySQL</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL">
+            <span>PostgreSQL</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB">
+            <span>MongoDB</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/microsoftsqlserver/CC2927" alt="SQL Server">
+            <span>SQL Server</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/sqlite/003B57" alt="SQLite">
+            <span>SQLite</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL">
+            <span>SQL</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= FIREBASE ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Backend as a Service</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase">
+            <span>Firebase</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="Supabase">
+            <span>Supabase</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/firestore/FFCA28" alt="Firestore">
+            <span>Firestore</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/firebase/FFCA28" alt="Firebase Auth">
+            <span>Firebase Auth</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= ORACLE ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Oracle &amp; Enterprise</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="oracle-removebg-preview.png" alt="Oracle">
+            <span>Oracle</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="oracle-removebg-preview.png" alt="Oracle APEX">
+            <span>Oracle APEX</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="plsql-removebg-preview.png" alt="PL/SQL">
+            <span>PL/SQL</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= CLOUD ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Cloud &amp; Platforms</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="AWS">
+            <span>AWS Cloud</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/ibm/FFFFFF" alt="IBM Cloud">
+            <span>IBM Cloud</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Google Cloud">
+            <span>Google Cloud</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/vercel/FFFFFF" alt="Vercel">
+            <span>Vercel</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify">
+            <span>Netlify</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= DEVOPS ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">DevOps &amp; Infrastructure</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">
+            <span>Docker</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes">
+            <span>Kubernetes</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/jenkins/D24939" alt="Jenkins">
+            <span>Jenkins</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/linux/FFFFFF" alt="Linux">
+            <span>Linux</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/apache/D22128" alt="Apache">
+            <span>Apache</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/nginx/009639" alt="Nginx">
+            <span>Nginx</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/azuredevops/0078D7" alt="DevOps">
+            <span>DevOps</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= VERSION CONTROL ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Version Control</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/git/F05032" alt="Git">
+            <span>Git</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub">
+            <span>GitHub</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/gitlab/FC6D26" alt="GitLab">
+            <span>GitLab</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/bitbucket/0052CC" alt="Bitbucket">
+            <span>Bitbucket</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= API ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">APIs &amp; Integration</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman">
+            <span>Postman</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="OpenAPI">
+            <span>OpenAPI</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/graphql/E10098" alt="GraphQL">
+            <span>GraphQL</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/json/FFFFFF" alt="JSON">
+            <span>JSON</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/xml/FFFFFF" alt="XML">
+            <span>XML</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/swagger/85EA2D" alt="Swagger">
+            <span>Swagger</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/mulesoft/00A1DF" alt="MuleSoft">
+            <span>MuleSoft</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= TOOLS ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Development Tools</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/androidstudio/3DDC84" alt="Android Studio">
+            <span>Android Studio</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="VS Code">
+            <span>VS Code</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/intellijidea/FFFFFF" alt="IntelliJ IDEA">
+            <span>IntelliJ IDEA</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman">
+            <span>Postman</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/npm/CB3837" alt="npm">
+            <span>npm</span>
+          </div>
+
+          <div class="skill-pill">
+            <img src="https://cdn.simpleicons.org/yarn/2C8EBB" alt="Yarn">
+            <span>Yarn</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= CONCEPTS ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Development Concepts</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <span>OOP</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>DSA</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>DBMS</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>REST APIs</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>Microservices</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>Authentication</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>Cloud Computing</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>CI/CD</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>Agile</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>System Design</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= MARKUP & DATA ================= -->
+      <div class="skill-category">
+        <h3 class="skill-category-title">Markup &amp; Data Formats</h3>
+        <div class="skill-pills">
+
+          <div class="skill-pill">
+            <span>HTML</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>XML</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>JSON</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>YAML</span>
+          </div>
+
+          <div class="skill-pill">
+            <span>Markdown</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <h2>Contact</h2>
+          <p>If you'd like to work together or have a question, send me a message using the form below or email me directly at <a href="mailto:vivekmalwade2@gmail.com">vivekmalwade2@gmail.com</a>.</p>
+          <form id="contactForm" class="contact-form" action="https://formspree.io/f/xnjyrgzq" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@domain.com">
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Brief message or project details"></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Send message</button>
+              <div id="formStatus" class="note" aria-live="polite"></div>
+            </div>
+          </form>
+        
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Vivek Malwade — Built with care.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
